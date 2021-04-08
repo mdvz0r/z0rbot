@@ -3,7 +3,7 @@
  * <p>Description: z0rbot</p>
  * <p>Copyright: Copyright (c) 2004 - 2005</p>
  * <p>Company: z0r.nl</p>
- * @author mdvz0r
+ * @author mdvz0r & Elvis
  * @version 2.2
  */
 

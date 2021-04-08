@@ -1,2 +1,8 @@
 # z0rbot
-acient bot that collects quake2 and quake3 player data and stores it in a database
+**unsupported ancient game statistics and match organiser bot**
+
+Server collects quake2, quake3 and halflife player data and stores it in a database.
+
+Client connects to IRC and is able to provide player statistics, find active players and organise matches.
+
+Web environment; not published.
