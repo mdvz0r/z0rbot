@@ -26,7 +26,7 @@ public class PlayerHandler {
       Timestamp vandaag = new Timestamp(System.currentTimeMillis());
 
       // Haal jaar en maand op
-      Calendar cal = new GregorianCalendar();
+      Calendar cal = new GregorianCalendar(new Locale("fi"));
       int week = cal.get(Calendar.WEEK_OF_YEAR);
       int year = cal.get(Calendar.YEAR);
 

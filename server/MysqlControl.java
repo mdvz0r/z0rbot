@@ -14,8 +14,8 @@ import java.lang.*;
 public class MysqlControl {
 
   protected String mysqlIp = "localhost";
-  protected String mysqlUser = "stats";
-  protected String mysqlPass = "mdvonly";
+  protected String mysqlUser = "quake2";
+  protected String mysqlPass = "d38D^xg*LB3jZv";
   protected String mysqlData = "z0rbot";
 
   protected Z0rbotMysqlHandler z0rbotMysqlHandler;
