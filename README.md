@@ -37,3 +37,16 @@ javac Main.java
 ```
 java Main
 ```
+
+# Error handling
+
+- Error
+```
+Connection failed: java.sql.SQLException: Server connection failure during transaction. Due to underlying exception: 'java.sql.SQLException: Data source rejected establishment of connection,  message from server: "Client does not support authentication protocol requested by server; consider upgrading MySQL client"'.
+```
+- Solution
+```
+mysql> ALTER USER '[user]'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+mysql> FLUSH PRIVILEGES;
+mysql> quit
+```
