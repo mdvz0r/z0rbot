@@ -24,16 +24,17 @@ GRANT ALL PRIVILEGES ON z0rbot.* TO '[user]'@'localhost';
 ```
 mysql -u [user] -p z0rbot < db.sql
 ```
-5. Add following line to ~/.bashrc
+5. Copy config.properties.example as config.properties and add your database config there
+6. Add following line to ~/.bashrc
 ```
 export CLASSPATH=$CLASSPATH:[z0rbot location here]/z0rbot/jars/mysql-connector-java-3.0.9-stable-bin.jar
 ```
-6. Compile
+7. Compile
 ```
 cd server
 javac Main.java
 ```
-7. Run
+8. Run
 ```
 java Main
 ```
