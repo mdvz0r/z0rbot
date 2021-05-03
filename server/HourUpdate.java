@@ -26,11 +26,11 @@ public class HourUpdate implements Runnable {
 
   public void run() {
     // current hour
-    Calendar newCal = new GregorianCalendar();
+    Calendar newCal = new GregorianCalendar(new Locale("fi"));
     Calendar oldCal = newCal;
     while (true) {
       // new time
-      newCal = new GregorianCalendar();
+      newCal = new GregorianCalendar(new Locale("fi"));
       if (newCal.get(Calendar.HOUR_OF_DAY) != oldCal.get(Calendar.HOUR_OF_DAY)) {
 //        System.out.println(statsbot.addSpaces("Noticed a change of hour, new hour is: " + newCal.get(Calendar.HOUR_OF_DAY), true));
         // update serverload

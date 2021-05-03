@@ -10,19 +10,39 @@
 
 import java.util.*;
 import java.lang.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class MysqlControl {
 
-  protected String mysqlIp = "localhost";
-  protected String mysqlUser = "stats";
-  protected String mysqlPass = "mdvonly";
-  protected String mysqlData = "z0rbot";
+  protected String mysqlIp;
+  protected String mysqlUser;
+  protected String mysqlPass;
+  protected String mysqlData;
 
   protected Z0rbotMysqlHandler z0rbotMysqlHandler;
   protected ArrayList gameMysqlHandlerList = new ArrayList();
 
+  public void LoadConfig() {
+    try {
+      InputStream input = new FileInputStream("config.properties");
+      Properties prop = new Properties();
+      prop.load(input);
+
+      mysqlIp = prop.getProperty("db.host");
+      mysqlUser = prop.getProperty("db.user");
+      mysqlPass = prop.getProperty("db.password");
+      mysqlData = prop.getProperty("db.database");
+    } catch (IOException ex) {
+      ex.printStackTrace();
+    }
+  }
+
   public MysqlControl() {
     try {
+      LoadConfig();
       // create an instance of the Main database (mysqlData)
 System.out.println("creating connection to the main database");
       z0rbotMysqlHandler = new Z0rbotMysqlHandler("jdbc:mysql://"+ mysqlIp + "/" + mysqlData + "?user=" + mysqlUser + "&password=" + mysqlPass+"&autoReconnect=true&dontTrackOpenResources=true");

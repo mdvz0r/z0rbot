@@ -141,7 +141,7 @@ public class BotHandler extends Thread {
 		    }
 		    if(channelChecked) {
 			if(readLineSplit[1].equals("STATS")) {
-			    Calendar statsCalendar = Calendar.getInstance();
+			    Calendar statsCalendar = new GregorianCalendar(new Locale("fi"));
 			    ArrayList mysqlStatsList = lineHandler.stats(readLineSplit[2].toLowerCase(), readLineSplit[3], name, number, String.valueOf(statsCalendar.get(Calendar.YEAR)), String.valueOf(statsCalendar.get(Calendar.WEEK_OF_YEAR)));
 
 			    if(mysqlStatsList.size() > 5) {
