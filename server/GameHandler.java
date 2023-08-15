@@ -74,7 +74,8 @@ public class GameHandler extends Thread {
 
         // declare all vars
         String map = "", frags = "", ping = "", gamedir = "", matchmode = "",
-            ctf = "", hostname = "", deathmatch = "", teamplay = "", scripts = "";
+            ctf = "", hostname = "", deathmatch = "", teamplay = "", scripts = "",
+            gm = "", gmf = "";
 
         // for all settings:
         for (int serverSettingListCounter = 0; serverSettingListCounter < serverSettingList.size(); serverSettingListCounter++) {
@@ -107,6 +108,12 @@ public class GameHandler extends Thread {
           if (serverSettingInfo[0].equals("deathmatch")) {
             deathmatch = serverSettingInfo[1];
           }
+          if (serverSettingInfo[0].equals("gm")) {
+            gm = serverSettingInfo[1];
+          }
+          if (serverSettingInfo[0].equals("gmf")) {
+            gmf = serverSettingInfo[1];
+          }
           if (serverSettingInfo[0].equals("hostname") || serverSettingInfo[0].equals("sv_hostname")) {
             hostname = serverSettingInfo[1];
             // update server hostname
@@ -120,21 +127,21 @@ public class GameHandler extends Thread {
           // if gamedir isnt empty
           if (! (gamedir.equals(""))) {
             // check if game is ctf
-            if (ctf.equals("1")) {
+            if ((ctf.equals("1")) || (gm.equals("ctf"))) {
               gamedir = gamedir + " ctf";
             }
             // check if game is teamplay
-            if (teamplay.equals("1")) {
+            if ((teamplay.equals("1")) || (gm.equals("tp"))) {
               gamedir = gamedir + " teamplay";
             }
             // check if teamplay is set to zero, then it's deathmatch, if teamplay isnt set then deathmatch wont be set as well
-            if (teamplay.equals("0")) {
+            if ((teamplay.equals("0")) || (gm.equals("dm"))) {
               gamedir = gamedir + " deathmatch";
             }
             // get a factor
             int factor = 1000;
             String cwServer = "0";
-            if (matchmode.equals("1") && teamplay.equals("1")) {
+            if (((matchmode.equals("1") || gmf.equals("8")) && (teamplay.equals("1") || (gm.equals("tp")))) {
               factor = 1250;
               cwServer = "1";
             }
