@@ -30,7 +30,7 @@ public class ExceptionHandler {
 
 	try{
 	    PrintWriter printWriter = new PrintWriter(new FileWriter("Error/ErrorLog.txt", true));
-	    Calendar calendar = new GregorianCalendar();
+	    Calendar calendar = new GregorianCalendar(new Locale("fi"));
 	    Date date = calendar.getTime();
 	    StackTraceElement stackTraceElement[] = e.getStackTrace();
 
@@ -48,7 +48,7 @@ public class ExceptionHandler {
 
 	try{
 	    PrintWriter printWriter = new PrintWriter(new FileWriter("Error/ErrorLog.txt", true));
-	    Calendar calendar = new GregorianCalendar();
+	    Calendar calendar = new GregorianCalendar(new Locale("fi"));
 	    Date date = calendar.getTime();
 
 	    printWriter.println(date.toString() + " Message: " + e);
